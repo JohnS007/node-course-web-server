@@ -2,7 +2,7 @@ let express = require('express');
 let hbs = require('hbs');
 let fs = require('fs');
 let app = express();
-
+const port = process.env.PORT || 3000 ;
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('screamIt', (text) => {
   return text.toUpperCase();
@@ -52,6 +52,6 @@ app.get('/bad',(req,res) => {
   });
 })
 
-app.listen(3000,() =>{
-  console.log('Server is up and running on port 3000');
+app.listen(port,() =>{
+  console.log(`Server is up and running on ${port}`);
 });
